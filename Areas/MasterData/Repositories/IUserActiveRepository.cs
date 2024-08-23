@@ -1,0 +1,105 @@
+﻿using Microsoft.EntityFrameworkCore;
+using PurchasingSystemApps.Areas.MasterData.Models;
+using PurchasingSystemApps.Data;
+using PurchasingSystemApps.Models;
+using PurchasingSystemApps.Repositories;
+
+namespace PurchasingSystemApps.Areas.MasterData.Repositories
+{
+    public class IUserActiveRepository
+    {
+        private readonly ApplicationDbContext _context;
+
+        public IUserActiveRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public UserActive Tambah(UserActive user)
+        {
+            _context.UserActives.Add(user);
+            _context.SaveChanges();
+            return user;
+        }
+
+        public async Task<UserActive> GetUserById(Guid Id)
+        {
+            var user = await _context.UserActives
+                .SingleOrDefaultAsync(i => i.UserActiveId == Id);
+
+            if (user != null)
+            {
+                var userDetail = new UserActive()
+                {
+                    UserActiveId = user.UserActiveId,
+                    UserActiveCode = user.UserActiveCode,
+                    FullName = user.FullName,
+                    IdentityNumber = user.IdentityNumber,
+                    PlaceOfBirth = user.PlaceOfBirth,
+                    DateOfBirth = user.DateOfBirth,
+                    Gender = user.Gender,
+                    Address = user.Address,
+                    Handphone = user.Handphone,
+                    Email = user.Email,
+                    Foto = user.Foto
+                };
+                return userDetail;
+            }
+            return null;
+        }
+
+        public async Task<UserActive> GetUserByIdNoTracking(Guid Id)
+        {
+            return await _context.UserActives.AsNoTracking().FirstOrDefaultAsync(a => a.UserActiveId == Id);
+        }
+
+        public async Task<List<UserActive>> GetUserActives()
+        {
+            return await _context.UserActives.OrderBy(p => p.CreateDateTime).Where(u => u.FullName != "Administrator").Select(user => new UserActive()
+            {
+                UserActiveId = user.UserActiveId,
+                UserActiveCode = user.UserActiveCode,
+                FullName = user.FullName,
+                IdentityNumber = user.IdentityNumber,
+                PlaceOfBirth = user.PlaceOfBirth,
+                DateOfBirth = user.DateOfBirth,
+                Gender = user.Gender,
+                Address = user.Address,
+                Handphone = user.Handphone,
+                Email = user.Email,
+                Foto = user.Foto
+            }).ToListAsync();
+        }
+
+        public IEnumerable<UserActive> GetAllUser()
+        {
+            return _context.UserActives.OrderByDescending(d => d.CreateDateTime)
+                .AsNoTracking();
+        }
+
+        public IEnumerable<ApplicationUser> GetAllUserLogin()
+        {
+            return _context.Users
+                .AsNoTracking();
+        }
+
+        public UserActive Update(UserActive update)
+        {
+            var user = _context.UserActives.Attach(update);
+            user.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return update;
+        }
+
+        public UserActive Delete(Guid Id)
+        {
+            var user = _context.UserActives.Find(Id);
+            if (user != null)
+            {
+                _context.UserActives.Remove(user);
+                _context.SaveChanges();
+            }
+            return user;
+        }
+    }
+}

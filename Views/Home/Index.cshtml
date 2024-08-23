@@ -1,0 +1,131 @@
+﻿@{
+    Layout = "~/Views/Shared/_TopNavbarHome.cshtml";
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="row mb-2">
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="Dashboard" asp-action="Index" asp-area="MasterData">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Master Data</h4>
+                        <p style="color:#ffffff">Master Data</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-table"></i>
+                    </div>                    
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="PurchaseRequest" asp-action="Index" asp-area="Order">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Purchase Request</h4>
+                        <p style="color:#ffffff">Purchase Request</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-cart-plus"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="Approval" asp-action="Index" asp-area="Order">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Approval</h4>
+                        <p style="color:#ffffff">Approval</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="PurchaseOrder" asp-action="Index" asp-area="Order">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Purchase Order</h4>
+                        <p style="color:#ffffff">Purchase Order</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="UnitRequest" asp-action="Index" asp-area="Transaction">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Unit Request</h4>
+                        <p style="color:#ffffff">Unit Request</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-first-aid"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="ReceiveOrder" asp-action="Index" asp-area="Warehouse">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Receive Order</h4>
+                        <p style="color:#ffffff">Receive Order</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-luggage-cart"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="WarehouseTransfer" asp-action="Index" asp-area="Warehouse">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Warehouse Transfer</h4>
+                        <p style="color:#ffffff">Warehouse Transfer</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-people-carry"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <a asp-controller="QtyDifference" asp-action="Index" asp-area="Warehouse">
+                <div class="small-box " style="background-color:#347FC4">
+                    @*change color in adminlte.min.cs*@
+                    <div class="inner">
+                        <h4 class="fw-bold" style="color:#ffffff">Qty Difference</h4>
+                        <p style="color:#ffffff">Qty Difference</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
